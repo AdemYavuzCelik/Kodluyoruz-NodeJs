@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li
+            style="list-style: none; color: orange; font-size: xx-large;  text-align:center; font-weight: bold; letter-spacing: 5px; padding-bottom: 25px; padding-top: 100px;">
+            KODLUYORUZ</li>
+        <li style="list-style: none; color: orange; font-size: x-large;  text-align:center; letter-spacing: 5px; padding-bottom: 25px; "
+            id="name"></li>
+        <li style="list-style: none; color: orange; font-size: x-large; text-align:center; letter-spacing: 5px; padding-bottom: 25px; "
+            id="date"></li>
+        <li style="list-style: none; color: orange; font-size: x-large;  text-align:center; letter-spacing: 5px; padding-bottom: 25px; "
+            id=desc></li>
+    </ul>
+
+</body>
+
+<script>
+
+    var isim = prompt("isim giriniz: ");
+    var d = new Date();
+    var time = d.toLocaleTimeString();
+    var dayNumber = d.getDay();
+    var day;
+    switch (dayNumber) {
+        case 0:
+            day = 'Monday'
+            break;
+        case 1:
+            day = 'Tuesday'
+            break;
+        case 2:
+            day = 'Wednesday'
+            break;
+        case 3:
+            day = 'Thursday'
+            break;
+        case 4:
+            day = 'Friday'
+            break;
+        case 5:
+            day = 'Saturday'
+
+            break;
+        case 6:
+            day = 'Sunday'
+            break;
+    }
+    document.querySelector('#name').innerHTML = `Merhaba, <strong>${isim}</strong> Hoşgeldiniz!`;
+    document.querySelector('#date').innerHTML = `${time} ${day}`
+    document.querySelector('#desc').innerHTML = `tarihinde
+        <strong>Kodluyoruz Frontend Web Development Patikası</strong>'nın
+        Javascript bölümü 1. Ödevindesiniz. `
+
+
+    setInterval(function () {
+        getTime();
+    }, 1000);
+
+    document.body.style.backgroundColor = "#34383e";
+    function getTime() {
+        d = new Date();
+        time = d.toLocaleTimeString();
+        document.querySelector('#date').innerHTML = `${time} ${day}`
+    }
+</script>
+
+</html>
